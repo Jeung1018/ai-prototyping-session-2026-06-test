@@ -12,9 +12,12 @@
     }
 
     :root {
-      --bg: #0a0a0f;
-      --accent: #00ffc6;
-      --accent-2: #ff2d95;
+      --bg-1: #ffe9f3;
+      --bg-2: #e6f0ff;
+      --clay: #fef6ff;
+      --ink: #5b4b8a;
+      --accent: #ff8fb1;
+      --accent-2: #8ec5ff;
     }
 
     body {
@@ -22,111 +25,101 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Courier New", "D2Coding", ui-monospace, monospace;
-      background-color: var(--bg);
-      background-image:
-        linear-gradient(rgba(0, 255, 198, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 198, 0.06) 1px, transparent 1px);
-      background-size: 32px 32px;
-      color: #e7fff7;
+      font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", sans-serif;
+      background: radial-gradient(circle at 20% 20%, var(--bg-1), transparent 45%),
+        radial-gradient(circle at 80% 80%, var(--bg-2), transparent 45%),
+        #fdf7ff;
+      color: var(--ink);
       padding: 24px;
-      overflow: hidden;
     }
 
     .card {
-      position: relative;
-      background: rgba(15, 15, 25, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 255, 198, 0.35);
-      border-radius: 8px;
+      background: var(--clay);
+      border-radius: 36px;
       padding: 56px 44px;
-      max-width: 460px;
+      max-width: 440px;
       width: 100%;
       text-align: center;
       box-shadow:
-        0 0 24px rgba(0, 255, 198, 0.25),
-        inset 0 0 24px rgba(0, 255, 198, 0.05);
+        14px 14px 36px rgba(180, 150, 220, 0.35),
+        -10px -10px 30px rgba(255, 255, 255, 0.9),
+        inset 4px 4px 10px rgba(255, 255, 255, 0.7),
+        inset -4px -4px 12px rgba(200, 170, 230, 0.25);
     }
 
-    .card::before {
-      content: "● ● ●";
-      position: absolute;
-      top: 14px;
-      left: 18px;
-      font-size: 0.7rem;
-      letter-spacing: 4px;
-      color: rgba(255, 45, 149, 0.7);
+    .emoji {
+      font-size: 3.4rem;
+      display: inline-block;
+      margin-bottom: 10px;
+      animation: wave 2.2s ease-in-out infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(16deg); }
+      30% { transform: rotate(-8deg); }
+      45% { transform: rotate(12deg); }
     }
 
     .card h1 {
-      font-size: 2.4rem;
+      font-size: 2.1rem;
       font-weight: 700;
-      margin: 8px 0 14px;
-      color: var(--accent);
-      text-shadow: 0 0 12px rgba(0, 255, 198, 0.6);
+      margin-bottom: 12px;
+      color: var(--ink);
     }
 
     .card p {
-      font-size: 1rem;
-      color: #8fb9ad;
-      margin-bottom: 32px;
-    }
-
-    .card p .cursor {
-      display: inline-block;
-      width: 9px;
-      height: 1.05rem;
-      margin-left: 2px;
-      background: var(--accent);
-      vertical-align: middle;
-      animation: blink 1s steps(2) infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
+      font-size: 1.05rem;
+      color: #9b8bc4;
+      margin-bottom: 34px;
     }
 
     button {
-      border: 1px solid var(--accent);
+      border: none;
       cursor: pointer;
       font-family: inherit;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--bg);
-      padding: 14px 36px;
-      border-radius: 6px;
-      background: var(--accent);
-      text-transform: uppercase;
-      box-shadow: 0 0 18px rgba(0, 255, 198, 0.5);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      color: #ffffff;
+      padding: 16px 40px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow:
+        6px 6px 16px rgba(255, 143, 177, 0.45),
+        -4px -4px 12px rgba(255, 255, 255, 0.8);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      background: #00ffd9;
-      box-shadow: 0 0 28px rgba(0, 255, 198, 0.8);
+      transform: translateY(-3px);
+      filter: brightness(1.04);
+      box-shadow:
+        8px 10px 22px rgba(255, 143, 177, 0.55),
+        -4px -4px 12px rgba(255, 255, 255, 0.9);
     }
 
     button:active {
-      transform: translateY(0);
+      transform: translateY(0) scale(0.97);
+      box-shadow:
+        inset 4px 4px 12px rgba(200, 100, 140, 0.35),
+        inset -3px -3px 10px rgba(255, 255, 255, 0.5);
     }
 
     .result {
-      margin-top: 28px;
-      font-size: 1.25rem;
+      margin-top: 30px;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: var(--accent-2);
-      text-shadow: 0 0 12px rgba(255, 45, 149, 0.6);
+      color: var(--accent);
       opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(8px) scale(0.95);
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .result.show {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     footer {
@@ -135,16 +128,16 @@
       left: 0;
       right: 0;
       text-align: center;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      color: rgba(0, 255, 198, 0.45);
+      font-size: 0.8rem;
+      color: rgba(155, 139, 196, 0.7);
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>안녕하세요 👋</h1>
-    <p>&gt; 제 첫 번째 웹 페이지예요<span class="cursor"></span></p>
+    <span class="emoji">👋</span>
+    <h1>안녕하세요</h1>
+    <p>제 첫 번째 웹 페이지예요</p>
     <button id="clickBtn" type="button">눌러보기</button>
     <div class="result" id="result">🎉 잘 작동해요!</div>
   </div>
